@@ -6,7 +6,6 @@ import java.util.*;
 public class Main {
 
     static int x;
-    static int[] arr = new int[65];
 
     public static void main(String[] args) throws IOException {
 
@@ -21,15 +20,25 @@ public class Main {
         int count = 0;
         int cur = 64;
         int sum = 0;
-        
-        while (cur != 1) {
+
+        while (sum != x) {
+            /**
+             * cur 64, sum 0
+             * cur 32, sum 0
+             * cur 16, sum 16
+             * cur 8, sum 16
+             * cur 4 sum 20
+             * cur 2 sum 22
+             * cur 1 sum 23
+             */
             cur /= 2;
 
-            if (cur <= x && sum + cur <= x) {
+            if (sum + cur <= x) {
                 sum += cur;
                 count++;
             }
         }
+
         System.out.println(count);
     }
 }
